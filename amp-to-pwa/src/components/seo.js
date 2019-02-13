@@ -23,6 +23,10 @@ function SEO({ description, lang, meta, keywords, title, slug = ''}) {
               {
                 rel: 'canonical',
                 href: `${siteUrl}${path}`
+              },
+              {
+                rel: 'amphtml',
+                href: `${siteUrl}amp/${path}`
               }
             ]}
             meta={[

@@ -107,6 +107,14 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-html2amp',
+      options: {
+        files: ['posts/**/index.html', 'index.html'],
+        gaConfigPath: 'gaConfig.json',
+        dist: 'public/amp'
+      }
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
     {
