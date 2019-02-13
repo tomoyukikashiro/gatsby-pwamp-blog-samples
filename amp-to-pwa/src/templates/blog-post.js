@@ -10,11 +10,11 @@ class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
-    const { previous, next } = this.props.pageContext
+    const { previous, next, slug } = this.props.pageContext
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title={post.frontmatter.title} description={post.excerpt} />
+        <SEO title={post.frontmatter.title} description={post.excerpt} slug={slug} />
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -45,14 +45,14 @@ class BlogPostTemplate extends React.Component {
         >
           <li>
             {previous && (
-              <Link to={previous.fields.slug} rel="prev">
+              <Link to={`/posts${previous.fields.slug}`} rel="prev">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link to={`/posts${next.fields.slug}`} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
