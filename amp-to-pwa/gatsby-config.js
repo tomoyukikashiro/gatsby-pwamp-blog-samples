@@ -112,7 +112,12 @@ module.exports = {
       options: {
         files: ['posts/**/index.html', 'index.html'],
         gaConfigPath: 'gaConfig.json',
-        dist: 'public/amp'
+        dist: 'public/amp',
+        serviceWorker: {
+          src: 'https://gatsby-starter-blog-demo.netlify.com/sw.js',
+          'data-iframe-src': 'https://gatsby-starter-blog-demo.netlify.com/amp-install-serviceworker.html',
+          layout: 'nodisplay'
+        }
       }
     },
     `gatsby-plugin-offline`,
